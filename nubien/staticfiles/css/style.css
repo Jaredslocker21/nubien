@@ -16,7 +16,7 @@ h1 {
 }
 
 .hero-image {
-    background-image: url('../site_images/bgimage.jpeg');
+    background-image: url('static/site_images/bgimage.jpeg');
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
