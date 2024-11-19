@@ -11,9 +11,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+# import dj_database_url
+from django.contrib.messages import constants as messages
+if os.path.isfile('env.py'):
+    import env
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,11 +35,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '8000-jaredslocker21-nubien-gv2s376jzbg.ws-eu116.gitpod.io']
 
 STATIC_URL = '/static/'
-
-# To allow Django to find the static files
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Optional if you want global static files
-]
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Application definition
 
@@ -62,11 +67,8 @@ ROOT_URLCONF = 'nubien.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            # You can add a project-level templates directory here if needed
-            # BASE_DIR / 'templates',
-        ],
-        'APP_DIRS': True,  # This makes Django search inside each app's 'templates' directory
+        'DIRS': [TEMPLATES_DIR],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

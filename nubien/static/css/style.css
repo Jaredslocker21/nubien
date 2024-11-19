@@ -1,4 +1,20 @@
 /* styles.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+h1 {
+    color: blueviolet;
+}
+
 .hero-image {
     background-image: url('path/to/your/image.jpg');
     height: 100vh;
@@ -17,10 +33,10 @@
 }
 
 .nav-link {
-    color: white;
+    color: rgb(189, 60, 60);
     transition: color 0.3s;
 }
 
 .nav-link:hover {
-    color: #f8f9fa;
+    color: #0b4580;
 }
