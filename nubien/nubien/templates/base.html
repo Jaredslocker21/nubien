@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Production Website </title>
+</head>
+<body>
+    <div class="hero-image">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">NuBien Studio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <div class="nav-link-wrapper">
+                                <a class="nav-link" href="#">Home</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link-wrapper">
+                                <a class="nav-link" href="#">About</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link-wrapper">
+                                <a class="nav-link" href="#">Services</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link-wrapper">
+                                <a class="nav-link" href="#">Contact</a>
+                            </div>
+                            <li class="nav-item">
+                                <div class="nav-link-wrapper">
+                                    <a class="nav-link" href="#">nubien</a>
+                                </div>
+                            </li>
+                        </li>
+                    </ul>
+                </div>
+            
+        </nav>
+
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Include a Bootstrap Modal in the base.html -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="blogModalLabel">Blog Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" class="img-fluid mb-3" alt="Blog Post">
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to populate modal -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('blogModal');
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.getElementById('modalImage').src = card.querySelector('img').src;
+                document.getElementById('modalDescription').textContent = card.querySelector('.card-title').textContent;
+                $(modal).modal('show');
+            });
+        });
+    });
+</script>
+
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- Use full jQuery version -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -16,7 +16,7 @@ h1 {
 }
 
 .hero-image {
-    background-image: url('static/site_images/bgimage.jpeg');
+    background-image: url('../site_images/bgimage.jpeg');
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,13 +30,44 @@ h1 {
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
+    text-align: center;
+    background-color:(transparent);
+}
+
+
+.navbar-brand {
+    color: white !important; /* Override Bootstrap default */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #ffcc00 !important; /* Add hover effect */
+}
+.nav-link-wrapper {
+    background-color: rgba(0, 0, 0, 0.4); /* Slight transparent background */
+    backdrop-filter: blur(10px); /* Blur the background behind each nav item */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 8px; /* Add rounded corners for a nice look */
+    padding: 5px 10px; /* Space around the nav item */
+    margin: 0 10px; /* Space between nav items */
+    display: inline-block; /* Ensure the wrapper sizes appropriately */
 }
 
 .nav-link {
-    color: rgb(189, 60, 60);
-    transition: color 0.3s;
+    color: white !important; /* Keep the text color visible */
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-link:hover {
-    color: #0b4580;
+    color: #ffcc00 !important; /* Change hover color */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.navbar-toggler-icon {
+    background-color: white; /* Ensure visibility on small screens */
 }

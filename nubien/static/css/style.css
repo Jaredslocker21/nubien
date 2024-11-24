@@ -31,10 +31,7 @@ h1 {
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.4); /* Slight dark transparent background */
-    backdrop-filter: blur(10px); /* Apply blur effect to the background */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    padding: 15px 0; /* Padding to give it a little space */
+    background-color:(transparent);
 }
 
 
@@ -49,12 +46,20 @@ h1 {
 .navbar-brand:hover {
     color: #ffcc00 !important; /* Add hover effect */
 }
+.nav-link-wrapper {
+    background-color: rgba(0, 0, 0, 0.4); /* Slight transparent background */
+    backdrop-filter: blur(10px); /* Blur the background behind each nav item */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 8px; /* Add rounded corners for a nice look */
+    padding: 5px 10px; /* Space around the nav item */
+    margin: 0 10px; /* Space between nav items */
+    display: inline-block; /* Ensure the wrapper sizes appropriately */
+}
 
 .nav-link {
-    color: white !important; /* Override Bootstrap styles */
+    color: white !important; /* Keep the text color visible */
     text-decoration: none;
     font-size: 1.2rem;
-    margin: 0 15px;
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
